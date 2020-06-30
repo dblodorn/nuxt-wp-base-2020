@@ -1,0 +1,34 @@
+/* MARQUEE */
+@keyframes marqueeLeft {
+  0% { 
+    transform: translateX(0);
+  }
+  100% {
+    transform:translateX(-100%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform:translateX(-100%);
+  }
+  100% { 
+    transform:translateX(0);
+  }
+}
+
+/* BEZIER TRANSITIONS */
+.bezier-150 {
+  transition: all 150ms cubic-bezier(.19,.48,.27,.99);
+  will-change: all;
+}
+
+.bezier-300 {
+  transition: all 300ms cubic-bezier(.19,.48,.27,.99);
+  will-change: all;
+}
+
+.bezier-500 {
+  transition: all 500ms cubic-bezier(.19,.48,.27,.99);
+  will-change: all;
+}

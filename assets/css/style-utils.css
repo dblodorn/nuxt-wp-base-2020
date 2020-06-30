@@ -1,0 +1,15 @@
+.border-bottom {
+  border-bottom: var(--border-black);
+}
+
+.border-right {
+  border-right: var(--border-black);
+}
+
+.border-left {
+  border-left: var(--border-black);
+}
+
+.border-top {
+  border-top: var(--border-black);
+}

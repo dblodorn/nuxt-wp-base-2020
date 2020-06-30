@@ -1,0 +1,31 @@
+/* DEFAULTS */
+:root { 
+  --pad-big: 5rem;
+  --pad-double: 3rem;
+  --pad-single: 1.5rem;
+  --pad-micro: .75rem;
+  --max-width-small: 62rem;
+  --max-width-medium: 80rem;
+  --max-width-large: 96rem;
+  --max-width-xl: 140rem;
+  --header-height: 10rem;
+  --footer-height: 10rem;
+}
+
+@media (--lg) {
+  :root {
+    --pad-big: 6rem;
+    --pad-double: 4rem;
+    --pad-single: 2rem;
+    --pad-micro: 1rem;
+  }
+}
+
+@media (--xl) {
+  :root {
+    --pad-big: 6rem;
+    --pad-double: 4rem;
+    --pad-single: 2rem;
+    --pad-micro: 1rem;
+  }
+}

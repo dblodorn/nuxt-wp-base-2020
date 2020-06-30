@@ -1,0 +1,35 @@
+:root { 
+  --black: #000000;
+  --white: #FFFFFF;
+  --text-color: #05438f;
+  --text-bg: #e2dfdc;
+  --light-grey: #bfbfbf;
+  --black-screen: rgba(0,0,0,.9);
+  --lt-grey: #ececec;
+  --border-black: 2px solid var(--black);
+  --border-white: 2px solid var(--white);
+}
+
+/* BG COLOR OVERIDES */
+.bg-black {
+  background-color: var(--black)!important;
+}
+
+.bg-white {
+  background-color: var(--white)!important;
+}
+
+.bg-text {
+  background-color: var(--text-bg)!important;
+}
+
+/* TYPE COLOR OVERIDES */
+.black {
+  color: var(--black)!important;
+}
+.white {
+  color: var(--white)!important;
+}
+.text {
+  color: var(--text-color)!important;
+}

@@ -1,0 +1,70 @@
+html {
+  font-size: 58%;
+}
+
+@media screen and (--sm) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (--lg) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+@media screen and (--xl) {
+  html {
+    font-size: 64%;
+  }
+}
+
+@media screen and (--xxl) {
+  html {
+    font-size: 72%;
+  }
+}
+
+/* SCROLL BAR */
+*::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+  display: none;
+}
+*::-webkit-scrollbar-track {
+  background: var(--grey-dk);
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--black);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--grey-lt);
+}
+
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+* > ::selection {
+  background: var(--black);
+  color: var(--white);
+}
+  
+* > ::-moz-selection {
+  background: var(--black);
+  color: var(--white);
+}
+
+* {
+  box-sizing: border-box; 
+  outline: 0;
+}
+
+@media (--lg) {
+  *::-webkit-scrollbar {
+    height: 1px;
+    width: 1px;
+    display: block;
+  }
+}

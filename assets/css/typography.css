@@ -1,0 +1,277 @@
+:root { 
+  --big-size: 3.5rem;
+  --reg-size: 2rem;
+  --sm-size: 1.35rem;
+  --h1: var(--big-size);
+  --h2: var(--big-size);
+  --h3: var(--big-size);
+  --h4: var(--reg-size);
+  --h5: var(--reg-size);
+  --h6: var(--sm-size);
+  --micro: var(--sm-size);
+  --p_sm: var(--sm-size);
+  --p_med: var(--reg-size);
+  --p_lg: var(--big-size);
+  --font-a: 'basis', sans-serif;
+  --font-b: 'basis', sans-serif;
+}
+
+@media (--lg) {
+  :root {
+    --big-size: 5.5rem;
+    --reg-size: 2.25rem;
+    --sm-size: 1.5rem;
+  }
+}
+
+.font-a {
+  font-family: var(--font-a);
+  font-style: var(--font-style-a);
+  font-weight: var(--font-weight-a);
+}
+
+.font-b {
+  font-family: var(--font-b);
+  font-style: var(--font-style-b);
+  font-weight: var(--font-weight-b);
+}
+
+.stroke-type-bw {
+  color: var(--white);
+  -webkit-text-fill-color: var(--white);
+  -webkit-text-stroke-color: var(--black);
+  -webkit-text-stroke-width: 1px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TYPOGRPAHY */
+a,
+button,
+select,
+.button-init {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-appearance: none;
+  border: 0;
+  background-color: rgba(255,255,255,0);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: var(--black);
+  cursor: pointer;
+}
+
+button,
+select,
+.button-init {
+  border-radius: 0;
+  appearance: none;
+  padding: 0;
+}
+
+a:hover,
+button:hover,
+select:hover,
+.button-init:hover {
+  text-decoration: none;
+}
+
+h1,
+.h1 {
+  letter-spacing: 1px;
+  font-size: var(--h1);
+  line-height: 1;
+}
+
+h2,
+.h2 {
+  font-size: var(--h2);
+  line-height: 1.25;
+}
+
+h3,
+.h3 {
+  font-size: var(--h3);
+  line-height: 1.25;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  font-style: var(--font-style-a);
+  font-weight: var(--font-weight-a);
+  font-family: var(--font-a);
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: var(--font-a);
+  font-style: var(--font-style-a);
+  font-weight: var(--font-weight-a);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  line-height: 1.1;
+}
+
+h4,
+.h4 {
+  font-size: var(--h4);
+}
+
+h5,
+.h5 {
+  font-size: var(--h5);
+  line-height: 1.25;
+}
+
+h6,
+.h6 {
+  font-family: var(--font-a);
+  font-style: var(--font-style-a);
+  font-weight: var(--font-weight-a);
+  text-transform: uppercase;
+  font-size: var(--h6);
+  letter-spacing: 1px;
+  color: var(--black);
+}
+
+.small-uppercase {
+  font-size: var(--h6);
+  font-family: var(--font-a);
+  font-style: var(--font-style-a);
+  font-weight: var(--font-weight-a);
+  text-transform: uppercase;
+}
+
+.micro {
+  font-size: var(--micro);
+  font-family: var(--font-b);
+  font-style: regular;
+  text-transform: uppercase;
+}
+
+p,
+.p {
+  font-family: var(--font-b);
+  font-style: var(--font-style-b);
+  font-weight: var(--font-weight-b);
+  font-size: var(--p_med);
+  line-height: 1.25;
+  padding-bottom: var(--pad-single);
+}
+
+p:last-child,
+.p:last-child {
+  padding-bottom: 0;
+}
+
+.p-sm {
+  font-size: var(--p_sm);
+}
+
+.p-lg {
+  font-size: var(--p_lg);
+}
+
+b,
+.bold {
+  font-weight: 700!important;
+  letter-spacing: 1px;
+}
+
+.mega {
+  font-size: var(--mega);
+  line-height: .8;
+}
+
+i,
+.italic {
+  font-style: italic;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.micro-header {
+  font-size: var(--micro);
+  font-family: var(--font-b);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: var(--pad-micro);
+  margin-bottom: var(--pad-single);
+  width: 100%;
+}
+
+.displayer {
+  position: relative;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--black);
+  color: var(--text-color);
+}
+
+.displayer > h3 {
+  font-family: var(--font-a);
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.link-style-a {
+  cursor: pointer;
+  display: inline-block;
+  color: var(--text-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: var(--pad-single);
+  padding-bottom: 0;
+}
+
+.link-style-a > span {
+  border-bottom: 1px dashed var(--light-grey);
+  padding-bottom: 2px;
+}
+
+pre {
+  text-align: start;
+  padding: 5px 15px 3px 15px;
+  font-size: var(--micro)!important;
+  line-height: 1.25;
+  border-radius: 5px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  border: var(--border-black);
+  background-color: var(--white);
+  color: var(--black)!important;
+}
+
+blockquote {
+  quotes: "\201C""\201D""\2018""\2019"!important;
+  padding-left: 2rem;
+}
+
+blockquote:before {
+  color: var(--text-color);
+  content: open-quote;
+  font-size: var(--h1);
+  line-height: 0.1rem;
+  margin-right: 0.5rem;
+  vertical-align: -2rem;
+}
+
+blockquote > p {
+  display: inline;
+}
