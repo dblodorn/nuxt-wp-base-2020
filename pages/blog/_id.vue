@@ -1,10 +1,6 @@
 <template>
   <div v-if="loading">Fetching Data...</div>
-  <article v-else class="project-wrapper responsive-grid sm-col-1 md-col-1 lg-col-2">
-    <section class="pad-single">
-      <h1 class="mw-sm">{{ post.title }}</h1>
-    </section>
-  </article>
+  <article v-else class="p flex-row-wrap x-pad-single y-pad-double mw-lg" v-html="post.content"/>
 </template>
 
 <script>
@@ -41,7 +37,7 @@ export default {
   },
   computed: {
     ...mapState({
-      projects: state => state.api.projects,
+      articles: state => state.api.articles,
       dataLoaded: state => state.api.dataLoaded
     }),
     loading () {

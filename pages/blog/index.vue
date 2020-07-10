@@ -1,7 +1,14 @@
 <template>
   <loading v-if="loading"/>
-  <section v-else class="pad-single y-pad-top">
-    <h1>BLOG</h1>
+  <section v-else class="y-pad-top">
+    <h1 class="x-pad-single y-pad-single border-bottom">Blog</h1>
+    <ul class="x-pad-single y-pad-single y-pad-top">
+      <li v-for="post of data" :key="post.id">
+        <n-link class="h1 y-pad-single y-pad-bottom" :to="`/blog/${post.slug}`">
+          <span v-html="post.title"/>
+        </n-link>
+      </li>
+    </ul>
   </section>
 </template>
 
