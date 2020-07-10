@@ -1,22 +1,9 @@
 <template>
   <div class="page-wrapper-component">
-    <transition name="fade">
-      <main-menu 
-        v-if="menuState"
-        :closeHandler="toggleMenu"
-      />
-    </transition>
-    <app-header
-      v-if="header"
-      :title="title"
-      :menuHandler="toggleMenu"
-      :longForm="longForm"
-    />
     <loading v-if="loading"/>
     <main v-else class="page-wrapper">
       <slot :pageData="apiData"/>
     </main>
-    <app-footer v-if="footer"/>
   </div>
 </template>
 

@@ -1,12 +1,8 @@
 <template>
   <loading v-if="loading"/>
-  <ul v-else class="pad-single y-pad-top">
-    <li v-for="post of data.derpy_nav" :key="post.id">
-      <n-link class="h1 y-pad-single y-pad-bottom" :to="`/work/${post.slug}`">
-        <span v-html="post.title"/>
-      </n-link>
-    </li>
-  </ul>
+  <section v-else class="pad-single y-pad-top inner-page">
+    <h1>ABOUT</h1>
+  </section>
 </template>
 
 <script>

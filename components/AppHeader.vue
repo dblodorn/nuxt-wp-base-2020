@@ -2,9 +2,25 @@
   <header class="bg-text x-pad-single">
     <div class="header-inner flex-center-vert">
       <n-link to="/" class="h2"><span>HOME</span></n-link>
+      <button class="h2" @click="menuHandler">
+        <span>MENU</span>
+      </button>
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  name: 'AppHeader',
+  props: {
+    menuHandler: {
+      type: Function,
+      default: () => {},
+      useDefaultForNull: true
+    }
+  }
+}
+</script>
 
 <style>
   header {
@@ -16,5 +32,6 @@
   .header-inner {
     width: 100%;
     height: 100%;
+    justify-content: space-between;
   }
 </style>

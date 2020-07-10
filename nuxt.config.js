@@ -30,7 +30,7 @@ export default {
   ],
   pageTransition: {
     name: 'fade',
-    mode: ''
+    mode: 'out-in'
   },
   plugins: [
     { src: '@/plugins/event-bus' },

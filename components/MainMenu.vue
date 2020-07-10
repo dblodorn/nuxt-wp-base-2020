@@ -2,50 +2,33 @@
   <div class="main-menu pad-single">
     <div class="main-menu-inner bg-text pad-single flex-centered">
       <div class="close-wrapper pad-single flex-space-between">
-        <n-link to="/" class="h4 white link" @click="closeHandler">
-          <span>EPOCH</span>
-        </n-link>
-        <button class="h4 white link" @click="closeHandler">
-          <span>CLOSE</span>
-        </button>
+        <div>
+          <n-link to="/" class="h4" @click.native="closeHandler">
+            <span>HOME</span>
+          </n-link>
+        </div>
+        <div>
+          <button class="h4" @click="closeHandler">
+            <span>CLOSE</span>
+          </button>
+        </div>
       </div>
       <nav class="flex-column text-align-center xl-size font-a uppercase line-height-med">
         <n-link 
-          class="white link"
+          class="black link"
           v-for="item of navigation"
           :key="item.slug"
           :to="`/${item.slug}`"
-          @click="closeHandler"
+          @click.native="closeHandler"
         >
           <span>{{item.name}}</span>
         </n-link>
       </nav>
-      <div class="menu-footer pad-single flex-space-between">
-        <div class="footer-inner bg-text flex-space-between">
-          <copyright />
-          <n-link 
-            class="white font-a link reg-size uppercase"
-            :to="`/privacy-policy`"
-            @click="closeHandler"
-          >
-            <span>Privacy</span>
-          </n-link>
-          <n-link 
-            class="white font-a link reg-size uppercase"
-            :to="`/terms`"
-            @click="closeHandler"
-          >
-            <span>Terms & Conditions</span>
-          </n-link>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { nav } from '~/globals'
-
 export default {
   name: 'MainMenu',
   props: {
@@ -58,7 +41,7 @@ export default {
   computed: {
     navigation() {
       let navItems = []
-      nav.forEach(item => {
+      this.$global.nav.forEach(item => {
         navItems.push({
           slug: this.$stringToSlug(item),
           name: item

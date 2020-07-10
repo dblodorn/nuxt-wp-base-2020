@@ -1,5 +1,5 @@
 <template>
-  <h5 class="white font-a link reg-size uppercase">&copy; {{thisYear}}</h5>
+  <h5 class="font-a reg-size uppercase">&copy; {{thisYear}}</h5>
 </template>
 
 <script>

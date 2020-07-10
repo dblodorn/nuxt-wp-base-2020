@@ -15,7 +15,7 @@ export default {
   async fetch () {
     try {
       if (!this.dataLoaded) {
-        this.post = await this.$http.$get(`https://dmbk.io/wp-json/dmbk-io-api/v1/project/?name=${this.$route.params.id}`)
+        this.post = await this.$http.$get(`${process.env.CMS_URL}project/?name=${this.$route.params.id}`)
       } else {
         this.post = getPostData(this.$route.params.id, this.projects)
       }

@@ -1,6 +1,14 @@
 <template>
   <div>
-    <app-header />
+    <transition name="fade">
+      <main-menu 
+        v-if="menuState"
+        :closeHandler="toggleMenu"
+      />
+    </transition>
+    <app-header
+      :menuHandler="toggleMenu"
+    />
     <main class="page-wrapper">
       <nuxt />
     </main>
@@ -13,11 +21,13 @@ import debounce from 'lodash/debounce'
 import { mapGetters, mapActions, mapMutations, mapState } from 'vuex'
 import AppHeader from '@/components/AppHeader'
 import AppFooter from '@/components/AppFooter'
+import MainMenu from '@/components/MainMenu'
 
 export default {
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    MainMenu
   },
   computed: {
     ...mapState({
@@ -26,6 +36,11 @@ export default {
     ...mapGetters({
       breakpoint: 'screen/breakpoint'
     })
+  },
+  data() {
+    return {
+      menuState: false
+    }
   },
   created () {
     this.fetchCoreData()
@@ -79,6 +94,9 @@ export default {
     },
     mouseMove({ pageX = 0, pageY = 0 }) {
       this.$bus.$emit('mousemove', { x: pageX, y: pageY })
+    },
+    toggleMenu() {
+      this.menuState = !this.menuState
     },
     ...mapActions({
       fetchCoreData: 'api/fetchCoreData',
