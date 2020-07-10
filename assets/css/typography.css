@@ -70,6 +70,10 @@ select:hover,
   font-size: var(--sm-size);
 }
 
+.micro-size {
+
+}
+
 h1,
 .h1 {
   letter-spacing: 1px;
@@ -223,14 +227,13 @@ i,
 
 .displayer {
   position: relative;
-  padding: 1.5rem;
   color: var(--text-color);
 }
 
-.displayer > h3 {
+.displayer > p {
   font-family: var(--font-a);
-  font-size: 1.5rem;
-  padding-bottom: 1.5rem;
+  font-size: var(--micro-size);
+  padding-bottom: var(--pad-micro);
 }
 
 .link-style-a {
@@ -250,12 +253,12 @@ i,
 
 pre {
   text-align: start;
-  padding: 5px 15px 3px 15px;
-  font-size: var(--micro)!important;
+  padding: var(--pad-micro);
+  font-size: var(--micro-size)!important;
   line-height: 1.25;
   border-radius: 5px;
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-  border: var(--border-black);
+  border: 1px solid var(--black);
   background-color: var(--white);
   color: var(--black)!important;
 }

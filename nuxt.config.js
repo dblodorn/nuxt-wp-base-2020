@@ -39,7 +39,9 @@ export default {
     { src: "@/plugins/components.js" },
     { src: "@/plugins/global.js" },
     { src: "@/plugins/stringToSlug.js" },
-    { src: "@/plugins/stringUppercase.js" },
+    { src: "@/plugins/uppercase.js" },
+    { src: "@/plugins/capitalize.js" },
+    { src: "@/plugins/sentanceCase.js" },
     { src: "@/plugins/trimExcerpt.js" },
     { src: "@/plugins/dataById.js" },
     { src: "@/plugins/dataBySlug.js" },
@@ -71,6 +73,7 @@ export default {
     host: '0.0.0.0'
   },
   generate: {
+    fallback: '404.html',
     routes (callback) {
       axios.get('https://dmbk.io/wp-json/dmbk-io-api/v1/derpyvision')
         .then((res) => {

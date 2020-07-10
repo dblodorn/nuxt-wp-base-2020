@@ -5,7 +5,9 @@ export default (context, inject) => {
     ...globals,
     nav: [
       'About',
-      'Contact'
+      'Work',
+      'Blog',
+      'Contact',
     ]
   }
   inject('global', global)

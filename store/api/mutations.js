@@ -8,6 +8,9 @@ export default {
   setDerpy (state, data = {}) {
     state.derpy = data
   },
+  setArticles (state, data = {}) {
+    state.articles = data
+  },
   setApiData (state, bool = false) {
     state.dataLoaded = bool
   }

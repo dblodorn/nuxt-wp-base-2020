@@ -1,7 +1,7 @@
 <template>
   <loading v-if="loading"/>
   <section v-else class="pad-single y-pad-top">
-    <h1>CONTACT</h1>
+    <h1>BLOG</h1>
   </section>
 </template>
 
@@ -11,19 +11,19 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     if (!this.dataLoaded) {
-      this.data = await this.$http.$get(`${process.env.CMS_URL}derpyvision`)
+      this.data = await this.$http.$get(`${process.env.CMS_URL}articles`)
     } else {
-      this.data = this.derpy
+      this.data = this.articles
     }
   },
   data () {
     return {
-      data: {}
+      data: []
     }
   },
   computed: {
     ...mapState({
-      derpy: state => state.api.derpy,
+      articles: state => state.api.articles,
       dataLoaded: state => state.api.dataLoaded
     }),
     loading () {
@@ -36,7 +36,7 @@ export default {
   },
   head () {
     return {
-      title: `WAZZUP | ${process.env.APP_TITLE}`,
+      title: `BLOG | ${process.env.APP_TITLE}`,
       meta: [
         { hid: 'description', name: 'description', content: 'My custom description' },
         { hid: 'image', name: 'image', content: `${process.env.BASE_URL}/imgs/derpy-avatar-circle.png` },

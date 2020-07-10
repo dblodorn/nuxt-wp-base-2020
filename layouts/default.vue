@@ -9,6 +9,7 @@
     <app-header
       :menuHandler="toggleMenu"
     />
+    <breadcrumbs/>
     <main class="page-wrapper">
       <nuxt />
     </main>

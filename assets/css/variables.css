@@ -15,6 +15,7 @@
 
 /* TYPOGRAPHY */
 :root { 
+  --micro-size: calc(var(--base-unit) / 2);
   --sm-size: var(--base-unit);
   --reg-size: calc(var(--base-unit) * 1.25);
   --md-size: calc(var(--base-unit) * 2);

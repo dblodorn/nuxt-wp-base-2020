@@ -9,6 +9,11 @@
       "url": "https://dmbk.io/wp-json/dmbk-io-api/v1/derpyvision/",
       "filename": "derpy-data",
       "hash": false
+    },
+    {
+      "url": "https://dmbk.io/wp-json/dmbk-io-api/v1/articles/",
+      "filename": "article-data",
+      "hash": false
     }
   ]
 }
