@@ -1,17 +1,19 @@
 import axios from 'axios'
 import webpack from 'webpack'
 import FetchJsonWebpackPlugin from 'fetch-json-webpack-plugin'
+import whitelister from 'purgecss-whitelister'
 import endpoints from './endpoints.json'
 
 export default {
   mode: 'universal',
   env: {
-    BASE_URL: process.env.BASE_URL || 'http://localhost:8080',
+    BASE_URL: process.env.BASE_URL,
     APP_TITLE: process.env.APP_TITLE,
-    APP_VERSION: process.env.APP_VERSION
+    APP_VERSION: process.env.APP_VERSION,
+    CMS_URL: process.env.CMS_URL
   },
   head: {
-    title: process.env.npm_package_name || 'DMBK',
+    title: process.env.APP_TITLE || 'DMBK',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,17 +26,44 @@ export default {
   loading: { color: '#fff' },
   css: [
     '@/assets/css/main.css',
+    '@/assets/css/swiper.css'
   ],
+  pageTransition: {
+    name: 'fade',
+    mode: ''
+  },
   plugins: [
-    { src: '@/plugins/event-bus' }
+    { src: '@/plugins/event-bus' },
+    { src: '@/plugins/vue-scrollto' },
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    { src: "@/plugins/components.js" },
+    { src: "@/plugins/global.js" },
+    { src: "@/plugins/stringToSlug.js" },
+    { src: "@/plugins/stringUppercase.js" },
+    { src: "@/plugins/trimExcerpt.js" },
+    { src: "@/plugins/dataById.js" },
+    { src: "@/plugins/dataBySlug.js" },
+    { src: "@/plugins/postIndex.js" },
+    { src: "@/plugins/getPostData.js" }
   ],
   buildModules: [
     'nuxt-purgecss'
   ],
+  purgeCSS: {
+    whitelist: [
+      ...whitelister([
+        'assets/css/swiper.css'
+      ])
+    ]
+  },
   modules: [
     '@nuxt/http',
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/proxy'
+  ],
+  proxy: [
+    'http://localhost:9000/.netlify/functions'
   ],
   http: {},
   server: {

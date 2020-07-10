@@ -1,23 +1,23 @@
 <template>
   <div>
-    <Header />
+    <app-header />
     <main class="page-wrapper">
       <nuxt />
     </main>
-    <Footer />
+    <app-footer />
   </div>
 </template>
 
 <script>
 import debounce from 'lodash/debounce'
 import { mapGetters, mapActions, mapMutations, mapState } from 'vuex'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import AppHeader from '@/components/AppHeader'
+import AppFooter from '@/components/AppFooter'
 
 export default {
   components: {
-    Header,
-    Footer
+    AppHeader,
+    AppFooter
   },
   computed: {
     ...mapState({
@@ -44,6 +44,10 @@ export default {
       console.log(event)
     })
     */
+    // Console Globals
+    console.log(this.$global)
+    // Fire Netlify Function
+    this.lambdaTest()
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.debouncedResize, {
@@ -56,6 +60,14 @@ export default {
     window.removeEventListener('mousemove', this.mouseMove, { passive: true })
   },
   methods: {
+    async lambdaTest() {
+      try {
+        const res = await this.$axios.$get('/.netlify/functions/hello')
+        console.log('NETLIFY FUNCTION::', res)
+      } catch (e) {
+        console.log('NETLIFY FUNCTION::', e.response)
+      }
+    },
     async resize() {
       const size = await this.setScreenSize()
       this.$nextTick(() => this.$bus.$emit('resize', size))

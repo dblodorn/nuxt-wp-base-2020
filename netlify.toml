@@ -1,3 +1,8 @@
+[build]
+  command = "yarn generate"
+  functions = "functions-dist"
+  publish = "dist"
+
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 

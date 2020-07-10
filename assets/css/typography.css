@@ -1,29 +1,3 @@
-:root { 
-  --big-size: 3.5rem;
-  --reg-size: 2rem;
-  --sm-size: 1.35rem;
-  --h1: var(--big-size);
-  --h2: var(--big-size);
-  --h3: var(--big-size);
-  --h4: var(--reg-size);
-  --h5: var(--reg-size);
-  --h6: var(--sm-size);
-  --micro: var(--sm-size);
-  --p_sm: var(--sm-size);
-  --p_med: var(--reg-size);
-  --p_lg: var(--big-size);
-  --font-a: 'basis', sans-serif;
-  --font-b: 'basis', sans-serif;
-}
-
-@media (--lg) {
-  :root {
-    --big-size: 5.5rem;
-    --reg-size: 2.25rem;
-    --sm-size: 1.5rem;
-  }
-}
-
 .font-a {
   font-family: var(--font-a);
   font-style: var(--font-style-a);
@@ -48,12 +22,13 @@
 a,
 button,
 select,
-.button-init {
+.button-init,
+.link {
   -webkit-tap-highlight-color: rgba(255,255,255,0);
   -webkit-appearance: none;
   border: 0;
   background-color: rgba(255,255,255,0);
-  text-decoration: none;
+  text-decoration: none!important;
   position: relative;
   display: inline-block;
   color: var(--black);
@@ -73,6 +48,26 @@ button:hover,
 select:hover,
 .button-init:hover {
   text-decoration: none;
+}
+
+.xl-size {
+  letter-spacing: 1px;
+  font-size: var(--xl-size)!important;
+  line-height: 1;
+}
+
+.big-size {
+  letter-spacing: 1px;
+  font-size: var(--big-size);
+  line-height: 1;
+}
+
+.reg-size {
+  font-size: var(--reg-size);
+}
+
+.sm-size {
+  font-size: var(--sm-size);
 }
 
 h1,
@@ -163,8 +158,8 @@ p,
   font-style: var(--font-style-b);
   font-weight: var(--font-weight-b);
   font-size: var(--p_med);
-  line-height: 1.25;
-  padding-bottom: var(--pad-single);
+  line-height: 1.45;
+  padding-bottom: var(--pad-double);
 }
 
 p:last-child,
@@ -173,10 +168,12 @@ p:last-child,
 }
 
 .p-sm {
+  font-family: var(--font-b);
   font-size: var(--p_sm);
 }
 
 .p-lg {
+    font-style: var(--font-style-b);
   font-size: var(--p_lg);
 }
 
@@ -208,20 +205,25 @@ i,
   text-align: center;
 }
 
-.micro-header {
-  font-size: var(--micro);
-  font-family: var(--font-b);
+.uppercase {
   text-transform: uppercase;
-  border-bottom: 1px solid var(--black);
-  padding-bottom: var(--pad-micro);
-  margin-bottom: var(--pad-single);
-  width: 100%;
+}
+
+.line-height-sm {
+  line-height: 1;
+}
+
+.line-height-med {
+  line-height: 1.25;
+}
+
+.line-height-lg {
+  line-height: 1.5;
 }
 
 .displayer {
   position: relative;
   padding: 1.5rem;
-  border-bottom: 1px solid var(--black);
   color: var(--text-color);
 }
 
@@ -274,4 +276,8 @@ blockquote:before {
 
 blockquote > p {
   display: inline;
+}
+
+.text-shadow {
+  text-shadow: 0px 8px rgba(0,0,0,0.25)
 }
