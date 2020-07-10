@@ -1,7 +1,7 @@
 Copy to clipboard
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d86cb7c6-80c7-4a45-b4a8-e1f826481874/deploy-status)](https://app.netlify.com/sites/nuxt-wp-base-2020/deploys)
 
-# nuxt-wp-base-portfolio
+# NUXT WP-API NETLIFY BOILERPLATE EXTRAVAGANCE 💫
 
 Boilerplate repo for web front end built with nuxt.js, to be deployed on netlify with an additional boilerplate wp theme for a custom json api.
 
