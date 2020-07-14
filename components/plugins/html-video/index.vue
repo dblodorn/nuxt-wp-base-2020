@@ -1,26 +1,27 @@
 <template>
-  <div class="video-player-sizer">
-    <div class="video-embed">
-      <div :class="['video-loading flex-centered', loaded && 'hide']">
-        <div class="font-a xl-size white">...</div>
-      </div>
+  <div class="video-embed">
+    <div class="video-wrapper">
       <video 
         ref="vid" 
         playsinline
-        autoplay
         controlsList="nodownload"
-        :poster="cover"
+        :loop="loops"
+        :muted="muted"
         @click="playOrPause"
         @ended="stopHandler"
         @play="play"
         @loadedmetadata="loadedMetaHandler"
         @loadeddata="loadedHandler"
       >
-        <source :src="video" type="video/mp4"/>
+        <source
+          :src="url"
+          :poster="cover"
+          type="video/mp4"
+        />
       </video>
       <div
         class="seekbar-wrap"
-        v-if="videoPlaying"
+        v-if="controls && videoPlaying"
         @mousedown="grabSeekbar"
         @touchstart="grabSeekbar"
         @touchmove="moveSeekbar"
@@ -56,18 +57,34 @@ import VideoControls from './VideoControls'
 export default {
   name: 'VideoPlayer',
   props: {
-    video: {
-      type: String,
-      required: true
+    url: {
+      required: true,
+      type: String
     },
-    controls: {
-      required: false,
-      type: Boolean,
-      default: false,
-      useDefaultForNull: true
-    },
+		autoplay: {
+			required: false,
+			type: Boolean
+		},
     cover: {
       type: String
+    },
+		controls: {
+			required: false,
+			type: Boolean,
+			default: false,
+      useDefaultForNull: true
+    },
+    muted: {
+			required: false,
+			type: Boolean,
+			default: false,
+      useDefaultForNull: true
+    },
+    loops: {
+			required: false,
+			type: Boolean,
+			default: false,
+      useDefaultForNull: true
     }
   },
   components: {
@@ -99,7 +116,9 @@ export default {
     }
   },
   mounted() {
-    this.play()
+    this.$nextTick(() => { 
+      (this.autoplay && this.$refs.vid !== undefined) && this.play()
+    })
   },
   methods: {
     play() {
@@ -185,49 +204,14 @@ export default {
 </script>
 
 <style>
-.video-player-sizer {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  overflow-y: visible;
-  position: relative;
-}
-.video-embed {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.video-loading {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-}
-.video-loading.hide {
-  opacity: 0;
-  pointer-events: none;
-}
-.video-embed video {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  top: 0;
-  left: 0;
-}
 .seekbar-wrap {
   width: 100%;
   position: absolute;
-  bottom: -4px;
+  bottom: -3px;
   left: 0;
   z-index: 1000;
   height: 4px;
-  background-color: var(--epoch-dark-pink);
+  background-color: var(--white);
 }
 .seekbar-current,
 .seekbar-back {
@@ -239,7 +223,7 @@ export default {
 }
 .seekbar-current {
   z-index: 2;
-  background-color: var(--epoch-light-pink);
+  background-color: var(--black);
   transform: scaleX(0);
   transform-origin: left;
 }

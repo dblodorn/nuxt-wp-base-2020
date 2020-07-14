@@ -5,14 +5,3 @@
     </n-link>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    error: {
-      default: () => {},
-      type: Object
-    }
-  }
-}
-</script>

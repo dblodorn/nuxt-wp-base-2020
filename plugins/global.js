@@ -8,6 +8,7 @@ export default (context, inject) => {
       'Work',
       'Blog',
       'Contact',
+      'Videos'
     ]
   }
   inject('global', global)

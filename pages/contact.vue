@@ -1,13 +1,11 @@
 <template>
-  <loading v-if="loading"/>
-  <section v-else class="pad-single y-pad-top">
+  <section class="pad-single y-pad-top">
     <h1>CONTACT</h1>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
-import { mapState } from 'vuex'
 
 export default {
   asyncData ({ params }) {

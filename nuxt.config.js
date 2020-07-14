@@ -1,8 +1,6 @@
 import axios from 'axios'
 import webpack from 'webpack'
-// import FetchJsonWebpackPlugin from 'fetch-json-webpack-plugin'
 import whitelister from 'purgecss-whitelister'
-// import endpoints from './endpoints.json'
 
 export default {
   target: 'static',
@@ -10,7 +8,8 @@ export default {
     BASE_URL: process.env.BASE_URL,
     APP_TITLE: process.env.APP_TITLE,
     APP_VERSION: process.env.APP_VERSION,
-    CMS_URL: process.env.CMS_URL
+    CMS_URL: process.env.CMS_URL,
+    DEBUG: process.env.DEBUG
   },
   head: {
     title: process.env.APP_TITLE || 'DMBK',
@@ -27,28 +26,32 @@ export default {
     color: '#fff'
   },
   css: [
-    '@/assets/css/main.css',
-    '@/assets/css/swiper.css'
+    '~assets/css/main.css',
+    '~assets/css/swiper.css'
   ],
   pageTransition: {
     name: 'fade',
     mode: 'out-in'
   },
   plugins: [
-    { src: '@/plugins/event-bus' },
-    { src: '@/plugins/vue-scrollto' },
-    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
-    { src: "@/plugins/components.js" },
-    { src: "@/plugins/global.js" },
-    { src: "@/plugins/stringToSlug.js" },
-    { src: "@/plugins/uppercase.js" },
-    { src: "@/plugins/capitalize.js" },
-    { src: "@/plugins/sentanceCase.js" },
-    { src: "@/plugins/trimExcerpt.js" },
-    { src: "@/plugins/dataById.js" },
-    { src: "@/plugins/dataBySlug.js" },
-    { src: "@/plugins/postIndex.js" },
-    { src: "@/plugins/getPostData.js" }
+    { src: '~plugins/event-bus' },
+    { src: '~plugins/vue-scrollto' },
+    { src: '~plugins/vue-awesome-swiper', mode: 'client' },
+    { src: `~plugins/vimeo-player`, ssr: false },
+    { src: '~plugins/youtube-player', ssr: false },
+    { src: '~plugins/youtube-parser'},
+    { src: '~plugins/vimeo-parser'},
+    { src: "~plugins/components" },
+    { src: "~plugins/global" },
+    { src: "~plugins/stringToSlug" },
+    { src: "~plugins/uppercase" },
+    { src: "~plugins/capitalize" },
+    { src: "~plugins/sentanceCase" },
+    { src: "~plugins/trimExcerpt" },
+    { src: "~plugins/dataById" },
+    { src: "~plugins/dataBySlug" },
+    { src: "~plugins/postIndex" },
+    { src: "~plugins/getPostData" }
   ],
   buildModules: [
     'nuxt-purgecss'
@@ -79,45 +82,13 @@ export default {
   ],
   generate: {
     fallback: '404.html',
-    /*
-    routes () {
-      return axios.get(endpoints[0].url)
-        .then((res) => {
-          return res.data.all_projects.map((post) => {
-            return {
-              route: '/work/' + post.slug,
-              payload: post
-            }
-          })
-        })
-    },
-    routes (callback) {
-      axios.get('https://dmbk.io/wp-json/dmbk-io-api/v1/derpyvision')
-        .then((res) => {
-          const routes = res.data.derpy_nav.map((post) => {
-            return '/work/' + post.slug
-          })
-          callback(null, routes)
-        })
-        .catch(callback)
-    },
-    */
     subFolders: false
   },
   build: {
-    /*
-    extend (config, { isDev }) {
-      if (isDev) { 
-        console.log('development')
-      } else {
-        config.plugins.push(
-          new FetchJsonWebpackPlugin({
-            ...endpoints
-          })
-        )
-      }
-    },
-    */
+    vendor: [
+      'vue-vimeo-player',
+      'vue-youtube-embed'
+    ],
     postcss: {
       plugins: {
         autoprefixer: {},

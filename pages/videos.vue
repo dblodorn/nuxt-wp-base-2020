@@ -1,7 +1,23 @@
 <template>
-  <section class="pad-single y-pad-top inner-page">
-    <h1>ABOUT</h1>
-    <article class="y-pad-big wysiwig center mw-med" v-html="data.intro"/>
+  <section class="pad-single y-pad-top">
+    <h1>Video Players</h1>   
+    <div class="y-pad-big mw-xl center">
+      <div 
+        class="y-pad-big y-pad-bottom"
+        v-for="video in data.video_repeater"
+        :key="video.url"
+      >
+        <video-player 
+          :type="video.type"
+          :url="video.url"
+          :cover="video.cover"
+          :autoplay="video.autoplay"
+          :controls="video.controls"
+          :muted="video.muted"
+          :loops="video.loops"
+        />
+      </div>
+    </div>
   </section>
 </template>
 
