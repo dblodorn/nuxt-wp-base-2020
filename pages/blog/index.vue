@@ -1,6 +1,5 @@
 <template>
-  <loading v-if="loading"/>
-  <section v-else class="y-pad-top">
+  <section class="y-pad-top">
     <h1 class="x-pad-single y-pad-single border-bottom">Blog</h1>
     <thumbnail-link-grid 
       :route="'blog'"
@@ -10,33 +9,15 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState } from 'vuex'
 
 export default {
-  async fetch () {
-    if (!this.dataLoaded) {
-      this.data = await this.$http.$get(`${process.env.CMS_URL}articles`)
-    } else {
-      this.data = this.articles
-    }
-  },
-  data () {
-    return {
-      data: []
-    }
-  },
-  computed: {
-    ...mapState({
-      articles: state => state.api.articles,
-      dataLoaded: state => state.api.dataLoaded
-    }),
-    loading () {
-      if (!this.dataLoaded) {
-        return this.$fetchState.pending
-      } else {
-        return false
-      }
-    }
+  asyncData ({ params }) {
+    return axios.get(`${process.env.CMS_URL}articles`)
+      .then((res) => {
+        return { data: res.data }
+      })
   },
   head () {
     return {

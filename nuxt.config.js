@@ -1,11 +1,11 @@
 import axios from 'axios'
 import webpack from 'webpack'
-import FetchJsonWebpackPlugin from 'fetch-json-webpack-plugin'
+// import FetchJsonWebpackPlugin from 'fetch-json-webpack-plugin'
 import whitelister from 'purgecss-whitelister'
-import endpoints from './endpoints.json'
+// import endpoints from './endpoints.json'
 
 export default {
-  mode: 'universal',
+  target: 'static',
   env: {
     BASE_URL: process.env.BASE_URL,
     APP_TITLE: process.env.APP_TITLE,
@@ -23,7 +23,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#fff' },
+  loading: { 
+    color: '#fff'
+  },
   css: [
     '@/assets/css/main.css',
     '@/assets/css/swiper.css'
@@ -72,8 +74,23 @@ export default {
     port: 8080,
     host: '0.0.0.0'
   },
+  buildModules: [
+    '@nuxtjs/netlify-files'
+  ],
   generate: {
     fallback: '404.html',
+    /*
+    routes () {
+      return axios.get(endpoints[0].url)
+        .then((res) => {
+          return res.data.all_projects.map((post) => {
+            return {
+              route: '/work/' + post.slug,
+              payload: post
+            }
+          })
+        })
+    },
     routes (callback) {
       axios.get('https://dmbk.io/wp-json/dmbk-io-api/v1/derpyvision')
         .then((res) => {
@@ -84,9 +101,11 @@ export default {
         })
         .catch(callback)
     },
+    */
     subFolders: false
   },
   build: {
+    /*
     extend (config, { isDev }) {
       if (isDev) { 
         console.log('development')
@@ -98,6 +117,7 @@ export default {
         )
       }
     },
+    */
     postcss: {
       plugins: {
         autoprefixer: {},

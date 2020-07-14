@@ -1,6 +1,5 @@
 <template>
-  <loading v-if="loading"/>
-  <section v-else class="y-pad-top">
+  <section class="y-pad-top">
     <h1 class="x-pad-single y-pad-single border-bottom">Work</h1>
     <ul class="x-pad-single y-pad-single y-pad-top">
       <li v-for="post of data.derpy_nav" :key="post.id">
@@ -13,33 +12,15 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState } from 'vuex'
 
 export default {
-  async fetch () {
-    if (!this.dataLoaded) {
-      this.data = await this.$http.$get(`${process.env.CMS_URL}derpyvision`)
-    } else {
-      this.data = this.derpy
-    }
-  },
-  data () {
-    return {
-      data: {}
-    }
-  },
-  computed: {
-    ...mapState({
-      derpy: state => state.api.derpy,
-      dataLoaded: state => state.api.dataLoaded
-    }),
-    loading () {
-      if (!this.dataLoaded) {
-        return this.$fetchState.pending
-      } else {
-        return false
-      }
-    }
+  asyncData ({ params }) {
+    return axios.get(`${process.env.CMS_URL}derpyvision`)
+      .then((res) => {
+        return { data: res.data }
+      })
   },
   head () {
     return {

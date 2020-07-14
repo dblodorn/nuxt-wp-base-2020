@@ -6,33 +6,15 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState } from 'vuex'
 
 export default {
-  async fetch () {
-    if (!this.dataLoaded) {
-      this.data = await this.$http.$get(`${process.env.CMS_URL}derpyvision`)
-    } else {
-      this.data = this.derpy
-    }
-  },
-  data () {
-    return {
-      data: {}
-    }
-  },
-  computed: {
-    ...mapState({
-      derpy: state => state.api.derpy,
-      dataLoaded: state => state.api.dataLoaded
-    }),
-    loading () {
-      if (!this.dataLoaded) {
-        return this.$fetchState.pending
-      } else {
-        return false
-      }
-    }
+  asyncData ({ params }) {
+    return axios.get(`${process.env.CMS_URL}derpyvision`)
+      .then((res) => {
+        return { data: res.data }
+      })
   },
   head () {
     return {

@@ -44,7 +44,7 @@ export default {
     }
   },
   created () {
-    this.fetchCoreData()
+    // this.fetchCoreData()
     this.debouncedResize = debounce(this.resize, 50)
   },
   mounted () {
@@ -63,7 +63,7 @@ export default {
     // Console Globals
     console.log(this.$global)
     // Fire Netlify Function
-    this.lambdaTest()
+     // this.lambdaTest()
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.debouncedResize, {
@@ -76,6 +76,7 @@ export default {
     window.removeEventListener('mousemove', this.mouseMove, { passive: true })
   },
   methods: {
+    /*
     async lambdaTest() {
       try {
         const res = await this.$axios.$get('/.netlify/functions/hello')
@@ -84,6 +85,7 @@ export default {
         console.log('NETLIFY FUNCTION::', e.response)
       }
     },
+    */
     async resize() {
       const size = await this.setScreenSize()
       this.$nextTick(() => this.$bus.$emit('resize', size))
