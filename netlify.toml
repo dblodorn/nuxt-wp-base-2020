@@ -1,5 +1,5 @@
 [build]
-  command = "yarn generate"
+  command = "yarn build && yarn export"
   functions = "functions-dist"
   publish = "dist"
 
