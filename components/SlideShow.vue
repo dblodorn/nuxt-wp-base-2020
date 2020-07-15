@@ -5,19 +5,27 @@
         <swiper-slide v-for="(item, i) in slides" v-bind:key="('slide-show-' + i)">
           <div class="gallery-slide">
             <div class="gallery-slide-inner">
-              <img :src="item">
+              <img 
+                :src="item"
+                :class="image_fit === 'contain' ? 'fit-contain' : 'fit-cover'"
+              >
             </div>
           </div>
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"/>
-        <div class="control-right" slot="button-next">
-          <h4 class="reg-size pink-hover">NEXT</h4>
+        <div v-if="pagination" class="swiper-pagination" slot="pagination"/>
+        <div v-if="controls" class="control-right" slot="button-next">
+          <h4 class="reg-size">NEXT</h4>
         </div>
-        <div class="control-left" slot="button-prev">
-          <h4 class="reg-size pink-hover">PREV</h4>
+        <div v-if="controls" class="control-left" slot="button-prev">
+          <h4 class="reg-size">PREV</h4>
         </div>
       </swiper>
     </client-only>
+    <div v-if="debug" class="y-pad-micro">
+      <raw-displayer 
+        :value="{debug, slides, autoplay, controls, pagination, image_fit}"
+      />
+    </div>
   </div>
 </template>
 
@@ -29,15 +37,35 @@ export default {
       type: Array,
       default: [],
       useDefaultForNull: true
+    },
+		autoplay: {
+			required: false,
+			type: Boolean,
+			default: false,
+      useDefaultForNull: true
+		},
+		controls: {
+			required: false,
+			type: Boolean,
+			default: false,
+      useDefaultForNull: true
+    },
+		pagination: {
+			required: false,
+			type: Boolean,
+			default: false,
+      useDefaultForNull: true
+    },
+		image_fit: {
+			required: false,
+			type: String,
+			default: 'contain',
+      useDefaultForNull: true
     }
-  },
-  mounted() {
-    this.slides.length && this.$nextTick(() => {
-      this.$refs.mySwiper.swiper.autoplay.start()
-    })
   },
   data () {
     return {
+      debug: JSON.parse(process.env.DEBUG),
       swiper: null,
       swiperOption: {
         pagination: {
@@ -60,6 +88,24 @@ export default {
         fadeEffect: {
           crossFade: true
         },
+      }
+    }
+  },
+  mounted() {
+    this.slides.length && this.$nextTick(() => {
+      this.$refs.mySwiper !== undefined && this.swiperStart()
+    })
+  },
+  watch: {
+    autoplay: 'swiperStart'
+  },
+  methods: {
+    swiperStart() {
+      if(this.autoplay) {
+        this.$refs.mySwiper.swiper.autoplay.start()
+      } else {
+        this.$refs.mySwiper.swiper.slideTo(1)
+        this.$refs.mySwiper.swiper.autoplay.stop()
       }
     }
   }

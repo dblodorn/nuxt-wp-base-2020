@@ -4,7 +4,6 @@
 
 <script>
 import axios from 'axios'
-import { mapState } from 'vuex'
 import getPostData from './../../scripts/getPostData'
 
 export default {

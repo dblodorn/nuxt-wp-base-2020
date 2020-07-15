@@ -44,7 +44,6 @@ export default {
     }
   },
   created () {
-    // this.fetchCoreData()
     this.debouncedResize = debounce(this.resize, 50)
   },
   mounted () {
@@ -102,7 +101,6 @@ export default {
       this.menuState = !this.menuState
     },
     ...mapActions({
-      fetchCoreData: 'api/fetchCoreData',
       setTouch: 'screen/setTouch',
       setScreenSize: 'screen/setScreenSize'
     }),

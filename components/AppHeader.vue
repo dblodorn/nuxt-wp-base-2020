@@ -1,7 +1,9 @@
 <template>
   <header class="bg-text x-pad-single">
     <div class="header-inner flex-center-vert">
-      <n-link to="/" class="h2"><span>HOME</span></n-link>
+      <n-link to="/" class="h2">
+        <span>{{title}}</span>
+      </n-link>
       <button class="h2" @click="menuHandler">
         <span>MENU</span>
       </button>
@@ -12,6 +14,11 @@
 <script>
 export default {
   name: 'AppHeader',
+  data() {
+    return {
+      title: process.env.APP_TITLE
+    }
+  },
   props: {
     menuHandler: {
       type: Function,

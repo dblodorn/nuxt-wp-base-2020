@@ -1,6 +1,6 @@
 <template>
   <div class="displayer">
-    <h3 v-if="title" >DATA:: {{ title }}</h3>
+    <p v-if="title" >DATA:: {{ title }}</p>
     <pre>{{ valueString }}</pre>
   </div>
 </template>
