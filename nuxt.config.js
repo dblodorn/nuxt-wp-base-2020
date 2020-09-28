@@ -81,6 +81,7 @@ export default {
     '@nuxtjs/netlify-files'
   ],
   generate: {
+    interval: 700,
     fallback: '404.html',
     subFolders: false
   },
