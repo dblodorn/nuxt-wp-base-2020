@@ -3,13 +3,13 @@ import webpack from 'webpack'
 import whitelister from 'purgecss-whitelister'
 
 export default {
-  target: 'static',
+  target: process.env.TARGET,
   env: {
     BASE_URL: process.env.BASE_URL,
     APP_TITLE: process.env.APP_TITLE,
-    APP_VERSION: process.env.APP_VERSION,
     CMS_URL: process.env.CMS_URL,
-    DEBUG: process.env.DEBUG
+    TARGET: process.env.TARGET,
+    GA_ID: process.env.GA_ID
   },
   head: {
     title: process.env.APP_TITLE || 'DMBK',
@@ -54,7 +54,8 @@ export default {
     { src: "~plugins/getPostData" }
   ],
   buildModules: [
-    'nuxt-purgecss'
+    'nuxt-purgecss',
+    '@nuxtjs/google-analytics'
   ],
   purgeCSS: {
     whitelist: [
@@ -62,6 +63,9 @@ export default {
         'assets/css/swiper.css'
       ])
     ]
+  },
+  googleAnalytics: {
+    id: process.env.GA_ID,
   },
   modules: [
     '@nuxt/http',
@@ -77,13 +81,9 @@ export default {
     port: 8080,
     host: '0.0.0.0'
   },
-  buildModules: [
-    '@nuxtjs/netlify-files'
-  ],
   generate: {
-    interval: 700,
-    fallback: '404.html',
-    subFolders: false
+    interval: 500,
+    fallback: '404.html'
   },
   build: {
     vendor: [

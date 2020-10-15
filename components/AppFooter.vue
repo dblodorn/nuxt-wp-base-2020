@@ -3,6 +3,7 @@
     <a class="font-a link reg-size uppercase" href="#" v-scroll-to="'header'">
       <span>Top</span>
     </a>
+    <current-time/>
     <copyright/>
   </footer>
 </template>
@@ -15,7 +16,12 @@
 </style>
 
 <script>
+import CurrentTime from './CurrentTime'
+
 export default {
-  name: 'AppFooter'
+  name: 'AppFooter',
+  components: {
+    CurrentTime
+  }
 }
 </script>

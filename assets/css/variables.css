@@ -32,7 +32,7 @@
   --p_med: var(--reg-size);
   --p_lg: var(--big-size);
   --font-a: 'basis', sans-serif;
-  --font-b: 'basis', sans-serif;
+  --font-b: 'Space Mono', sans-serif;
   --font-weight-a: 600;
   --font-weight-b: 400;
   --font-style-a: regular;

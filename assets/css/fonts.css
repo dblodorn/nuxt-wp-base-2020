@@ -2,3 +2,13 @@
   font-family: 'basis';
   src: url('/fonts/BasisGrotesque-Regular.otf');
 }
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/SpaceMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono Italic';
+  src: url('/fonts/SpaceMono-Italic.ttf');
+}
