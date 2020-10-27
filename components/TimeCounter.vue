@@ -16,7 +16,7 @@ import { mapState } from 'vuex'
 import moment from 'moment-timezone'
 
 export default {
-  name: 'CurrentTime',
+  name: 'TimeCounter',
   data() {
     return {
       time: null,
