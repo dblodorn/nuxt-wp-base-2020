@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <fragment>
     <transition name="fade">
       <main-menu 
         v-if="menuState"
@@ -14,7 +14,7 @@
       <nuxt />
     </main>
     <app-footer />
-  </div>
+  </fragment>
 </template>
 
 <script>
@@ -31,9 +31,6 @@ export default {
     MainMenu
   },
   computed: {
-    ...mapState({
-      intro: state => state.screen.intro
-    }),
     ...mapGetters({
       breakpoint: 'screen/breakpoint'
     })
@@ -105,8 +102,7 @@ export default {
       setScreenSize: 'screen/setScreenSize'
     }),
     ...mapMutations({
-      setScroll: 'screen/setScroll',
-      hideIntro: 'screen/hideIntro'
+      setScroll: 'screen/setScroll'
     })
   }
 }

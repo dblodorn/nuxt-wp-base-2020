@@ -36,6 +36,10 @@ export default {
   plugins: [
     { src: '~plugins/event-bus' },
     { src: '~plugins/vue-scrollto' },
+    { src: '~plugins/vue-fragment' },
+    { src: '~plugins/vue-intersect', ssr: false },
+    { src: '~plugins/observer', ssr: false },
+    { src: '~plugins/aos', ssr: false },
     { src: '~plugins/vue-awesome-swiper', mode: 'client' },
     { src: `~plugins/vimeo-player`, ssr: false },
     { src: '~plugins/youtube-player', ssr: false },
