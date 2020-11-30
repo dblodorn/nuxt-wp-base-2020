@@ -58,6 +58,8 @@
     "nuxt-purgecss": "^1.0.0",
     "postcss-custom-media": "^7.0.8",
     "purgecss-whitelister": "^2.4.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "webpack-dev-middleware": "^3.7.2"
   }
 }
