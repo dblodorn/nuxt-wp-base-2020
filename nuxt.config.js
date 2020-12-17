@@ -9,7 +9,8 @@ export default {
     APP_TITLE: process.env.APP_TITLE,
     CMS_URL: process.env.CMS_URL,
     TARGET: process.env.TARGET,
-    GA_ID: process.env.GA_ID
+    GA_ID: process.env.GA_ID,
+    GMAP_KEY: process.env.GMAP_KEY,
   },
   head: {
     title: process.env.APP_TITLE || 'DMBK',
@@ -27,7 +28,8 @@ export default {
   },
   css: [
     '~assets/css/main.css',
-    '~assets/css/swiper.css'
+    '~assets/css/swiper.css',
+    'assets/css/flickity.css'
   ],
   pageTransition: {
     name: 'fade',
@@ -37,12 +39,15 @@ export default {
     { src: '~plugins/event-bus' },
     { src: '~plugins/vue-scrollto' },
     { src: '~plugins/vue-fragment' },
-    { src: '~plugins/vue-intersect', ssr: false },
-    { src: '~plugins/observer', ssr: false },
-    { src: '~plugins/aos', ssr: false },
+    { src: '~plugins/vue-scroll-lock' },
+    { src: '~plugins/vue-googlemaps', mode: 'client' },
+    { src: '~plugins/vue-intersect', mode: 'client' },
+    { src: '~plugins/observer', mode: 'client' },
+    { src: '~plugins/aos', mode: 'client' },
     { src: '~plugins/vue-awesome-swiper', mode: 'client' },
-    { src: `~plugins/vimeo-player`, ssr: false },
-    { src: '~plugins/youtube-player', ssr: false },
+    { src: '~plugins/vue-flickity', mode: 'client' },
+    { src: `~plugins/vimeo-player`, mode: 'client' },
+    { src: '~plugins/youtube-player', mode: 'client' },
     { src: '~plugins/youtube-parser'},
     { src: '~plugins/vimeo-parser'},
     { src: "~plugins/components" },
@@ -64,7 +69,8 @@ export default {
   purgeCSS: {
     whitelist: [
       ...whitelister([
-        'assets/css/swiper.css'
+        'assets/css/swiper.css',
+        'assets/css/flickity.css'
       ])
     ]
   },

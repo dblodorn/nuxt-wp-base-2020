@@ -31,6 +31,10 @@
         :image_fit="item.image_fit"
         :autoplay="item.autoplay"
       />
+      <copy-block
+        v-if="item.acf_fc_layout === 'copy_block'"
+        :copy="item.copy"
+      />
       <image-grid
         v-if="item.acf_fc_layout === 'image_grid'"
         :images="item.images"
@@ -47,8 +51,12 @@
 </template>
 
 <script>
+import CopyBlock from './CopyBlock'
 export default {
   name: "FlexMediaLayout",
+  components: {
+    CopyBlock
+  },
   data() {
     return {
       debug: JSON.parse(process.env.DEBUG),

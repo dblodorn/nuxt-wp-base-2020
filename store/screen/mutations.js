@@ -6,6 +6,10 @@ export default {
     state.width = width
     state.height = height
   },
+  setMousePos(state, { x, y }) {
+    state.mouseX = x
+    state.mouseY = y
+  },
   setHeaderHeight(state, height) {
     state.headerHeight = height
   },

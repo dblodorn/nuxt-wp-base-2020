@@ -100,3 +100,27 @@ export default {
   }
 }
 </script>
+
+<style lang="css">
+.video-embed {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow-y: visible;
+  position: relative;
+  z-index: 100;
+}
+
+.video-embed > div,
+.video-embed > div > iframe,
+.video-embed > div > video,
+.video-wrapper,
+.video-wrapper > iframe,
+.video-embed iframe  {
+  width: 100%!important;
+  height: 100%!important;
+  position: absolute!important;
+  top: 0!important;
+  left: 0!important;
+}
+</style>

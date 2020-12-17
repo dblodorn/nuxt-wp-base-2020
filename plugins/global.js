@@ -11,7 +11,9 @@ export default (context, inject) => {
       'Flex Media',
       'Videos',
       'Carousel',
-      'Images'
+      'Images',
+      'Map',
+      'Flickity Slider'
     ]
   }
   inject('global', global)

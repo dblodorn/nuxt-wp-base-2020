@@ -4,6 +4,7 @@
       <main-menu 
         v-if="menuState"
         :closeHandler="toggleMenu"
+        v-scroll-lock="menuState"
       />
     </transition>
     <app-header
@@ -92,6 +93,7 @@ export default {
       this.$bus.$emit('scroll', pos)
     },
     mouseMove({ pageX = 0, pageY = 0 }) {
+      this.setMousePos({ x: pageX, y: pageY })
       this.$bus.$emit('mousemove', { x: pageX, y: pageY })
     },
     toggleMenu() {
@@ -102,7 +104,8 @@ export default {
       setScreenSize: 'screen/setScreenSize'
     }),
     ...mapMutations({
-      setScroll: 'screen/setScroll'
+      setScroll: 'screen/setScroll',
+      setMousePos: 'screen/setMousePos'
     })
   }
 }
