@@ -10,13 +10,7 @@ export default {
     state.mouseX = x
     state.mouseY = y
   },
-  setHeaderHeight(state, height) {
-    state.headerHeight = height
-  },
   setScroll(state, pos) {
     state.scroll = pos
-  },
-  hideIntro(state) {
-    state.intro = false
   }
 }

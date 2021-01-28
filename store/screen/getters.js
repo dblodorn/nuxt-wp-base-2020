@@ -10,6 +10,9 @@ export default {
     })
     return breakpoints
   },
+  isDesktop(state) {
+    return state.width >= screens.lg ? true : false
+  },
   currentBreakpoint(state, getters) {
     const breakpoints = getters.breakpoint
     const active = Object.keys(breakpoints)

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import moment from 'moment-timezone'
 
 export default {
@@ -46,9 +46,9 @@ export default {
     }
   },
   computed: {
-    isDesktop() {
-      return this.width >= this.$global.screens.lg ? true : false
-    },
+    ...mapGetters({
+      isDesktop: 'screen/isDesktop'
+    }),
     ...mapState({
       width: state => state.screen.width
     })
