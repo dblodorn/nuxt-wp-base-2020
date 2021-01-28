@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="breadcrumbs-wrapper">
     <div class="p-sm flex-row pad-single border-bottom">
       <div class="level-left flex-row">
         <div class="level-item">
@@ -63,3 +63,11 @@ export default {
   }
 }
 </script>
+
+<style lang="css">
+  .breadcrumbs-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 90;
+  }
+</style>

@@ -11,6 +11,7 @@ import SlideShow from '~/components/SlideShow'
 import ThumbnailLinkGrid from '~/components/layout/ThumbnailLinkGrid'
 import ImageGrid from '~/components/layout/ImageGrid'
 import FlexMediaLayout from '~/components/layout/FlexMediaLayout'
+import ViewportWrapper from '~/components/ViewportWrapper'
 
 Vue.component('raw-displayer', RawDisplayer)
 Vue.component('loading', Loading)
@@ -23,3 +24,4 @@ Vue.component('slide-show', SlideShow)
 Vue.component('thumbnail-link-grid', ThumbnailLinkGrid)
 Vue.component('image-grid', ImageGrid)
 Vue.component('flex-media-layout', FlexMediaLayout)
+Vue.component('viewport-wrapper', ViewportWrapper)

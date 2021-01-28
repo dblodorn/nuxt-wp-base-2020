@@ -1,6 +1,6 @@
 /* DEFAULTS */
 :root { 
-  --base-unit: 1.65rem;
+  --base-unit: 1.5rem;
   --pad-single: var(--base-unit);
   --pad-double: calc(var(--pad-single) * 2);
   --pad-big: calc(var(--pad-single) * 4);
@@ -42,7 +42,7 @@
 
 @media (--md) {
   :root {
-    --base-unit: 2rem;
+    --base-unit: 1.75rem;
   }
 }
 
@@ -52,10 +52,10 @@
     --micro-size: calc(var(--base-unit) / 2);
     --sm-size: var(--base-unit);
     --reg-size: calc(var(--base-unit) * 1.25);
-    --md-size: calc(var(--base-unit) * 2);
-    --big-size: calc(var(--base-unit) * 2.75);
+    --md-size: calc(var(--base-unit) * 1.75);
+    --big-size: calc(var(--base-unit) * 2.125);
     --xl-size: calc(var(--base-unit) * 3.5);
-    --header-height: calc(var(--base-unit) * 8);
+    --header-height: calc(var(--base-unit) * 4);
     --footer-height: calc(var(--base-unit) * 8);
   }
 }

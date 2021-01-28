@@ -221,10 +221,15 @@
   flex-direction: column;
 }
 
-.fl-r,
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-space-between {

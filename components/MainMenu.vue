@@ -13,7 +13,7 @@
           </button>
         </div>
       </div>
-      <nav class="flex-column text-align-center xl-size font-a uppercase line-height-med">
+      <nav class="flex-column text-align-center big-size font-a uppercase line-height-med">
         <n-link 
           class="black link"
           v-for="item of navigation"

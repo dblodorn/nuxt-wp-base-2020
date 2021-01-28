@@ -286,3 +286,32 @@ blockquote > p {
 .text-shadow {
   text-shadow: 0px 8px rgba(0,0,0,0.25)
 }
+
+.lozenge-button {
+  font-family: var(--font-a);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-black);
+  background-color: var(--white);
+  filter: var(--shadow);
+  color: var(--black);
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  letter-spacing: 1px;
+  font-size: var(--md-size);
+  padding: var(--pad-single) var(--pad-double);
+  margin-right: var(--pad-single);
+  margin-bottom: var(--pad-single);
+  border-radius: 50rem;
+}
+
+@media (hover: hover) {
+  .lozenge-button:hover {
+    background-color: var(--black);
+    color: var(--white);
+  }
+}

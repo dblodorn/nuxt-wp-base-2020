@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-text x-pad-single">
+  <header class="bg-text x-pad-single shadow">
     <div class="header-inner flex-center-vert">
       <n-link to="/" class="h2">
         <span>{{title}}</span>
@@ -32,8 +32,9 @@ export default {
 <style>
   header {
     width: 100%;
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     height: var(--header-height);
   }
   .header-inner {

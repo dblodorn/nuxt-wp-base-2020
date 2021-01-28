@@ -39,6 +39,7 @@ export default {
     { src: '~plugins/event-bus' },
     { src: '~plugins/vue-scrollto' },
     { src: '~plugins/vue-fragment' },
+    { src: '~plugins/vue-konva', mode: 'client' },
     { src: '~plugins/vue-scroll-lock' },
     { src: '~plugins/vue-googlemaps', mode: 'client' },
     { src: '~plugins/vue-intersect', mode: 'client' },

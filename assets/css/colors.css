@@ -9,6 +9,7 @@
   --lt-grey: #ececec;
   --border-black: var(--border-width) solid var(--black);
   --border-white: var(--border-width) solid var(--white);
+  --shadow: drop-shadow(0px 0px 5px rgba(0,0,0,.125));
 }
 
 /* BG COLOR OVERIDES */
@@ -33,4 +34,8 @@
 }
 .text {
   color: var(--text-color)!important;
+}
+
+.shadow {
+  filter: var(--shadow);
 }

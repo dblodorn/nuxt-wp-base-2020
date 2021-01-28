@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-text y-pad-big x-pad-single flex-space-between">
+  <footer class="bg-text y-pad-big x-pad-single flex-space-between shadow">
     <a class="font-a link reg-size uppercase" href="#" v-scroll-to="'header'">
       <span>Top</span>
     </a>
