@@ -34,7 +34,7 @@ export default {
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     height: var(--header-height);
   }
   .header-inner {
