@@ -4,7 +4,9 @@
       <button @click="prev" id="prev" class="lozenge-button small"><span>Prev</span></button>
       <button @click="next" id="next" class="lozenge-button small"><span>Next</span></button>
     </div>
-    <section id="three-world" ref="world"/>
+    <client-only>
+      <section id="three-world" ref="world"/>
+    </client-only>
   </div>
 </template>
 
