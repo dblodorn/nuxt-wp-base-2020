@@ -309,6 +309,11 @@ blockquote > p {
   border-radius: 50rem;
 }
 
+.lozenge-button.small {
+  padding: .5rem var(--pad-micro)!important;
+  font-size: var(--sm-size);
+}
+
 @media (hover: hover) {
   .lozenge-button:hover {
     background-color: var(--black);

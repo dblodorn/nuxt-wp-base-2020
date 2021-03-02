@@ -97,10 +97,24 @@ export default {
     fallback: '404.html'
   },
   build: {
+    extend(config, { isDev, isClient }) {
+      config.module.rules.push({
+        test: /\.(glsl|vs|fs|vert|frag)$/,
+        exclude: /node_modules/,
+        use: [
+          'raw-loader',
+          'glslify-loader'
+        ]
+      })
+      if (isDev) {
+        config.mode = 'development'
+      }
+    },
     vendor: [
       'vue-vimeo-player',
       'vue-youtube-embed'
     ],
+    transpile:["three"],
     postcss: {
       plugins: {
         autoprefixer: {},

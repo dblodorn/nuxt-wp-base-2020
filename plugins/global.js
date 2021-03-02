@@ -13,6 +13,7 @@ export default (context, inject) => {
       'Carousel',
       'Images',
       'Map',
+      'World',
       'Flickity Slider'
     ]
   }
